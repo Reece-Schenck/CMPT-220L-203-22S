@@ -1,6 +1,6 @@
 {
     "java.project.sourcePaths": [
-        "JavaLabs/Lab 2/src",
-        "JavaLabs/Hello World"
+        "JavaLabs/Hello World",
+        "JavaLabs/Lab 4/src/base"
     ]
 }
