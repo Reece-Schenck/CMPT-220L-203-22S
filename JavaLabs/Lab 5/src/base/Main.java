@@ -1,4 +1,5 @@
-package base;
+//ASK WHY THIS KEEPS GIVIGN ME ERRORS
+//package base;
 
 public class Main {
     /**
@@ -25,20 +26,74 @@ public class Main {
     static int pretzels_available = 60;
     static double cash = 1500.0;
     static double tips = 0.0;
+    //added static prices
+    static int lemonade_price = 8;
+    static int pretzel_price = 2;
 
 
     public static void main(String[] args) {
         //	Replace this with your dry inventory function!
-        wet_inventory();
+        //wet_inventory();
+        //Expected results:
+        //Results for the hour!
+        //Lemonades Inventory: 6
+        //Pretzels Inventory: 14
+        //Cash: 1888.0
+        //Tips: 36.0
+        dry_inventory();
     }
 
     static void dry_inventory() {
         // Your DRY Solution goes here!
+        //Customer 1
+        customer(4,1,4);
+        //Customer 2
+        customer(2,3,0);
+        //Customer 3
+        customer(3,0,0);
+        //Customer 4
+        customer(1,2,0);
+        //Customer 5
+        customer(0,6,10);
+        //Customer 6
+        customer(0,4,5);
+        //Customer 7
+        customer(2,0,0);
+        //Customer 8
+        customer(10,8,10);
+        //Customer 9
+        customer(6,0,0);
+        //Customer 10
+        customer(0,1,0);
+        //Customer 11
+        customer(1,0,0);
+        //Customer 12
+        customer(0,7,4);
+        //Customer 13
+        customer(2,0,0);
+        //Customer 14
+        customer(6,3,0);
+        //Customer 15
+        customer(9,2,3);
+
+        System.out.println("Results for the hour!");
+        System.out.println("Lemonades Inventory: " + lemonades_available);
+        System.out.println("Pretzels Inventory: " + pretzels_available);
+        System.out.println("Cash: " + cash);
+        System.out.println("Tips: " + tips);
+    }
+
+    static void customer(int pretzels, int lemonade, double tip){
+        pretzels_available -= pretzels;
+        cash += pretzels*pretzel_price;
+        lemonades_available -= lemonade;
+        cash += lemonade*lemonade_price;
+        tips += tip;
     }
 
     static void wet_inventory() {
         /**
-         * We have 10 customers in the first hour! This is what they bought! When running this with your dry code you
+         * We have 15 customers in the first hour! This is what they bought! When running this with your dry code you
          * don't want to run this function because then the numbers in the end will be wrong!
          */
         //Customer 1
