@@ -14,7 +14,8 @@ public class Main{
         root = tree.insert(root, 3);
         root = tree.insert(root, 14);
         root = tree.insert(root, 15);
-         
-        system.out.println("working");
+        
+        //test
+        System.out.println("working");
     }
 }

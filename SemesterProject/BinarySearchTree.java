@@ -1,7 +1,7 @@
 public class BinarySearchTree {
 
     public Node insert(Node newNode, int val){
-        if(node == null) {
+        if(newNode == null) {
           return NewNode(val);
         }
         
@@ -11,7 +11,7 @@ public class BinarySearchTree {
         else if((val > newNode.value)){
             newNode.right = insert(newNode.right, val);
         }
-        return node;
+        return newNode;
       }
       
       public Node NewNode(int num){
