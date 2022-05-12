@@ -1,10 +1,13 @@
 public class Main{
     public static void main(String[] args){
 
+        //creates a binary search tree
         BinarySearchTree tree = new BinarySearchTree();
 
+        //Creates the root node
         Node root = null;
 
+        //Adds sorted nodes to the root
         root = tree.insert(root, 9);
         root = tree.insert(root, 2);
         root = tree.insert(root, 8);
@@ -15,20 +18,23 @@ public class Main{
         root = tree.insert(root, 14);
         root = tree.insert(root, 15);
         
-        //test
 
         //Should be true
         System.out.println(tree.nodeExists(root, 6));
 
+
         //should be false
         System.out.println(tree.nodeExists(root, 16));
+
 
         //should be 2
         System.out.println(tree.getMin(root));
 
+
         //should be 15
         System.out.println(tree.getMax(root));
         
+
         // should be 11
         Node NthLargest = tree.NthLargestElement(root, 3);
 
@@ -38,6 +44,7 @@ public class Main{
         else{
             System.out.println("The value entered returns a null");
         }
+
 
         //should be null
         Node NthLargest2 = tree.NthLargestElement(root, 15);
@@ -49,14 +56,17 @@ public class Main{
             System.out.println("The value entered returns a null");
         }
 
+
         //should be 5
         System.out.println(tree.height(root));
+
 
         //should delete the node with value 14
         tree.deleteNode(root, 14);
 
         //the node with the value 14 should no longer exist(should be false)
         System.out.println(tree.nodeExists(root, 14));
+
 
         //prints list of nodes inorder
         tree.inorderSort(root);
@@ -70,6 +80,7 @@ public class Main{
         tree.postorderSort(root);
         System.out.println("");
 
+        
         //should return false
         System.out.println(tree.depthSearch(root, 20));
 

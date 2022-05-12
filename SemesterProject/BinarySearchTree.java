@@ -1,7 +1,9 @@
+//for queue and math
 import java.util.*;
 
 public class BinarySearchTree{
 
+  //inserts a new node to the proper position
   public Node insert(Node newNode, int val){
     if(newNode == null){
       return NewNode(val);
@@ -15,8 +17,9 @@ public class BinarySearchTree{
     }
       return newNode;
   }
-      
-
+  
+  
+  //creates a new node
   public Node NewNode(int num){
     Node newNode = new Node();
 
@@ -28,6 +31,7 @@ public class BinarySearchTree{
   }
 
 
+  //traverses through the tree to see if the node exists
   public boolean nodeExists(Node possibleNode, int val){
         
     boolean exists = false;
@@ -53,6 +57,7 @@ public class BinarySearchTree{
   }
 
 
+  //traverses down the left side of the tree until it reaches the bottom / min
   public int getMin(Node smallestNode){
     if(smallestNode == null){
       System.out.println("The tree is empty");
@@ -67,6 +72,7 @@ public class BinarySearchTree{
   }
 
 
+  //traverses down the right side of the tree until it reaches the bottom / nmax
   public int getMax(Node biggestNode){
     if(biggestNode == null){
       System.out.println("The tree is empty");
@@ -81,6 +87,7 @@ public class BinarySearchTree{
   }
 
   
+  //used to count down the tree until the Nth largest node is found
   static int count = 0;
 
   public Node NthLargestElement(Node NthNode, int num){
@@ -105,6 +112,8 @@ public class BinarySearchTree{
   }
 
 
+  //traverses both sides of the tree and takes the height of the biggest one
+  //adds one to the total to account for the root
   public int height(Node tree){
     if(tree == null){
       return 0;
@@ -113,33 +122,32 @@ public class BinarySearchTree{
   }
 
 
+  //traverses the tree to find the node that is to be deleted
+  //once found a temporary node is made to replace the deleted node
+  //this is so that the tree will still remain in order
   public Node deleteNode(Node delNode, int val){
+    //if node won't mess up order of the tree, it's deleted immediatly
     if(delNode == null){
       return delNode;
     }
     
     if(val < delNode.value){
       delNode.left = deleteNode(delNode.left, val);
-    }
-    else if(val > delNode.value){
+    }else if(val > delNode.value){
       delNode.right = deleteNode(delNode.right, val);
-    }
-    else{
+    }else{
       if(delNode.left == null || delNode.right == null){
 
         Node temp = null;
 
         if(delNode.left == null){
           temp = delNode.right;
-        }
-        else{
+        }else{
           temp = delNode.left;
         }
 
         return temp;
-
-      }
-      else{
+      }else{
         Node replacementNode = replacement(delNode);
         delNode.value = replacementNode.value;
         
@@ -152,6 +160,7 @@ public class BinarySearchTree{
   }
   
 
+  //makes sure that moving the replacement node to the deleted nodes spot wont mess up tree order
   public Node replacement(Node repNode){
     if(repNode == null){
       return null;
@@ -167,6 +176,7 @@ public class BinarySearchTree{
   }
 
 
+  //traverses the tree and orders the elements inorder
   public void inorderSort(Node inNode){
     //immediatly stops in node has no value
     if(inNode == null){
@@ -179,6 +189,7 @@ public class BinarySearchTree{
   }
 
 
+  //traverses the tree and orders the elements in preorder
   public void preorderSort(Node preNode){
     //immediatly stops in node has no value
     if(preNode == null){
@@ -191,6 +202,7 @@ public class BinarySearchTree{
   }
 
 
+  //traverses the tree and orders the elements in postorder
   public void postorderSort(Node postNode){
     //immediatly stops in node has no value
     if(postNode == null) {
@@ -203,6 +215,8 @@ public class BinarySearchTree{
   }
 
 
+  //searches all the left side of the tree and then the right side to find the node
+  //if the node is not found it is not in the tree
   public boolean depthSearch(Node node, int val){
 
     boolean exists = false;
@@ -221,7 +235,8 @@ public class BinarySearchTree{
     return exists;
   }
 
-
+  //searches from the top of the tree to the bottom to find the node
+  //if the node is not found it is not in the tree
   public boolean breadthSearch(Node root, int val){
     boolean exists = false;
 
