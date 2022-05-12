@@ -57,5 +57,17 @@ public class Main{
 
         //the node with the value 14 should no longer exist(should be false)
         System.out.println(tree.nodeExists(root, 14));
+
+        //prints list of nodes inorder
+        tree.inorderSort(root);
+        System.out.println("");
+
+        //print list of nodes in preorder
+        tree.preorderSort(root);
+        System.out.println("");
+
+        //prints list of nodes in post order
+        tree.postorderSort(root);
+        System.out.println("");
     }
 }
