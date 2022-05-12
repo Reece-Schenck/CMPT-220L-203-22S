@@ -69,5 +69,11 @@ public class Main{
         //prints list of nodes in post order
         tree.postorderSort(root);
         System.out.println("");
+
+        //should return false
+        System.out.println(tree.depthSearch(root, 20));
+
+        //should return true
+        System.out.println(tree.breadthSearch(root, 3));
     }
 }

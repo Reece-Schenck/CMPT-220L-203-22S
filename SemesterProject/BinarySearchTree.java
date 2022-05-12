@@ -1,4 +1,6 @@
-public class BinarySearchTree {
+import java.util.*;
+
+public class BinarySearchTree{
 
   public Node insert(Node newNode, int val){
     if(newNode == null){
@@ -166,6 +168,7 @@ public class BinarySearchTree {
 
 
   public void inorderSort(Node inNode){
+    //immediatly stops in node has no value
     if(inNode == null){
       return;
     }
@@ -177,6 +180,7 @@ public class BinarySearchTree {
 
 
   public void preorderSort(Node preNode){
+    //immediatly stops in node has no value
     if(preNode == null){
       return;
     }
@@ -188,6 +192,7 @@ public class BinarySearchTree {
 
 
   public void postorderSort(Node postNode){
+    //immediatly stops in node has no value
     if(postNode == null) {
       return;
     }
@@ -195,5 +200,63 @@ public class BinarySearchTree {
     postorderSort(postNode.left);
     postorderSort(postNode.right);
     System.out.print(postNode.value+ ". ");
+  }
+
+
+  public boolean depthSearch(Node node, int val){
+
+    boolean exists = false;
+
+    if(node == null){
+      return exists;
+    }
+
+    if(node.value == val){
+      exists = true;
+    }
+
+    depthSearch(node.left, val);
+    depthSearch(node.right, val);
+
+    return exists;
+  }
+
+
+  public boolean breadthSearch(Node root, int val){
+    boolean exists = false;
+
+    Queue<Node> queue = new LinkedList<Node>();
+    queue.add(root);
+    
+    if(root == null){
+      return exists;
+    }
+
+    if(root.value == val){
+      exists = true;
+    }
+
+    while(!queue.isEmpty()){
+      Node tempNode = queue.poll();
+
+      //add left child to the queue
+      if(tempNode.left != null){
+        queue.add(tempNode.left);
+        if((tempNode.left).value == val){
+          exists = true;
+          break;
+        }
+      }
+      
+      //add right child to the queue
+      if (tempNode.right != null){
+          queue.add(tempNode.right);
+          if((tempNode.right).value == val){
+            exists = true;
+            break;
+          }
+      }
+    }
+    return exists;
   }
 }
