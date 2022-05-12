@@ -51,5 +51,11 @@ public class Main{
 
         //should be 5
         System.out.println(tree.height(root));
+
+        //should delete the node with value 14
+        tree.deleteNode(root, 14);
+
+        //the node with the value 14 should no longer exist(should be false)
+        System.out.println(tree.nodeExists(root, 14));
     }
 }

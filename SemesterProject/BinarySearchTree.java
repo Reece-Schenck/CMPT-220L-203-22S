@@ -109,4 +109,58 @@ public class BinarySearchTree {
     }
     return Math.max(height(tree.left), height(tree.right)) + 1;
   }
+
+
+  public Node deleteNode(Node delNode, int val){
+    if(delNode == null){
+      return delNode;
+    }
+    
+    if(val < delNode.value){
+      delNode.left = deleteNode(delNode.left, val);
+    }
+    else if(val > delNode.value){
+      delNode.right = deleteNode(delNode.right, val);
+    }
+    else{
+      if(delNode.left == null || delNode.right == null){
+
+        Node temp = null;
+
+        if(delNode.left == null){
+          temp = delNode.right;
+        }
+        else{
+          temp = delNode.left;
+        }
+
+        return temp;
+
+      }
+      else{
+        Node replacementNode = replacement(delNode);
+        delNode.value = replacementNode.value;
+        
+        delNode.right = deleteNode(delNode.right, replacementNode.value);
+        return delNode;
+      }
+    }
+    
+    return delNode;
+  }
+  
+
+  public Node replacement(Node repNode){
+    if(repNode == null){
+      return null;
+    }
+    
+    Node temp = repNode.right;
+    
+    while(temp.left != null){
+      temp = temp.left;
+    }
+    
+    return temp;
+  }
 }
