@@ -16,6 +16,40 @@ public class Main{
         root = tree.insert(root, 15);
         
         //test
-        System.out.println("working");
+
+        //Should be true
+        System.out.println(tree.nodeExists(root, 6));
+
+        //should be false
+        System.out.println(tree.nodeExists(root, 16));
+
+        //should be 2
+        System.out.println(tree.getMin(root));
+
+        //should be 15
+        System.out.println(tree.getMax(root));
+        
+        // should be 11
+        Node NthLargest = tree.NthLargestElement(root, 3);
+
+        if(NthLargest != null){
+            System.out.println(NthLargest.value);  
+        }
+        else{
+            System.out.println("The value entered returns a null");
+        }
+
+        //should be null
+        Node NthLargest2 = tree.NthLargestElement(root, 15);
+
+        if(NthLargest2 != null){
+            System.out.println(NthLargest2.value);  
+        }
+        else{
+            System.out.println("The value entered returns a null");
+        }
+
+        //should be 5
+        System.out.println(tree.height(root));
     }
 }
